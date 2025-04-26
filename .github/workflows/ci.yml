@@ -1,0 +1,17 @@
+---
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terragrunt-job:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/hagzag/common-tools:latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run terragrunt command
+        run: terragrunt --version
